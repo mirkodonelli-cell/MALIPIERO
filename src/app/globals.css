@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-carta: #8db2c6;
+  --color-carta-scura: #5f8da6;
+  --color-carta-chiara: #dce9ef;
+  --color-velo: #eff4f6;
+  --color-notte: #12303d;
+  --color-notte-soft: #3a5c6b;
+  --color-ottone: #c08a3e;
+  --color-panna: #faf8f3;
+  --color-linea: rgba(18, 48, 61, 0.14);
+  --color-pannello: #16394a;
+
+  --font-serif: var(--font-literata), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-karla), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-courier-prime), "Courier New", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 78px;
+}
+
+body {
+  background: var(--color-velo);
+  color: var(--color-notte);
+}
+
+/* --- pentagramma: elemento firma --- */
+.staff {
+  height: 44px;
+  width: 100%;
+  background:
+    linear-gradient(var(--color-linea), var(--color-linea)) 0 4px / 100% 1px no-repeat,
+    linear-gradient(var(--color-linea), var(--color-linea)) 0 14px / 100% 1px no-repeat,
+    linear-gradient(var(--color-linea), var(--color-linea)) 0 24px / 100% 1px no-repeat,
+    linear-gradient(var(--color-linea), var(--color-linea)) 0 34px / 100% 1px no-repeat,
+    linear-gradient(var(--color-linea), var(--color-linea)) 0 44px / 100% 1px no-repeat;
+}
+
+/* --- melodia del hero: le note entrano una alla volta --- */
+.melody path,
+.melody line {
+  stroke: var(--color-carta-scura);
+  fill: none;
+}
+.melody .note {
+  fill: var(--color-ottone);
+  opacity: 0;
+  animation: note-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+@keyframes note-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- select: il testo delle <option> non eredita sempre lo stile del
+   <select> nel popup nativo del browser, va forzato esplicitamente --- */
+select option {
+  color: var(--color-notte);
+}
+
+/* --- select con freccia custom sul pannello scuro --- */
+select.select-dark {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-carta) 50%),
+    linear-gradient(135deg, var(--color-carta) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 50%,
+    calc(100% - 14px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 2.6rem;
+}
+select.select-dark option {
+  background: var(--color-pannello);
+  color: var(--color-panna);
+}
+
+/* --- fila di giorni con scroll orizzontale mascherato --- */
+.days {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(251, 250, 248, 0.35) transparent;
+  -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, #000 88%, transparent);
+}
+.days::-webkit-scrollbar {
+  height: 5px;
+}
+.days::-webkit-scrollbar-thumb {
+  background: rgba(251, 250, 248, 0.35);
+  border-radius: 3px;
+}
+
+/* --- reveal all'ingresso in viewport --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
