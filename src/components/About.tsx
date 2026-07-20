@@ -9,10 +9,13 @@ import antonellaNicolini from "../../public/images/teachers/antonella-nicolini.j
 import davidJavakhishvili from "../../public/images/teachers/david-javakhishvili.jpg";
 import riccardoLucadello from "../../public/images/teachers/riccardo-lucadello.jpg";
 import enricoMattea from "../../public/images/teachers/enrico-mattea.jpg";
+import enricoMastromatteo from "../../public/images/teachers/enrico-mastromatteo.jpg";
+import chiaraFanzago from "../../public/images/teachers/chiara-fanzago.jpg";
 
 const TEACHERS = [
   {
     name: "Marina Bartoli",
+    gender: "f",
     role: "Canto",
     corso: "Canto",
     photo: marinaBartoli,
@@ -22,6 +25,7 @@ const TEACHERS = [
   },
   {
     name: "Giacomo Dalla Libera",
+    gender: "m",
     role: "Pianoforte",
     corso: "Pianoforte",
     photo: giacomoDallaLibera,
@@ -31,6 +35,7 @@ const TEACHERS = [
   },
   {
     name: "Paolo Ferraresi",
+    gender: "m",
     role: "Pianoforte",
     corso: "Pianoforte",
     photo: paoloFerraresi,
@@ -40,6 +45,7 @@ const TEACHERS = [
   },
   {
     name: "Antonella Nicolini",
+    gender: "f",
     role: "Violino",
     corso: "Violino",
     photo: antonellaNicolini,
@@ -49,6 +55,7 @@ const TEACHERS = [
   },
   {
     name: "David Javakhishvili",
+    gender: "m",
     role: "Pianoforte",
     corso: "Pianoforte",
     photo: davidJavakhishvili,
@@ -58,6 +65,7 @@ const TEACHERS = [
   },
   {
     name: "Riccardo Lucadello",
+    gender: "m",
     role: "Violoncello",
     corso: "Violoncello",
     photo: riccardoLucadello,
@@ -67,12 +75,33 @@ const TEACHERS = [
   },
   {
     name: "Enrico Mattea",
+    gender: "m",
     role: "Tromba",
     corso: "Tromba",
     photo: enricoMattea,
     alt: "Il Maestro Enrico Mattea mentre suona la tromba",
     position: "left center",
     bio: "Diplomato in Tromba al Conservatorio di Torino, ha conseguito con lode il Diploma Accademico di II livello al Conservatorio di Padova, perfezionandosi poi con trombettisti di fama internazionale e nel repertorio barocco su strumenti antichi. Vanta un'attività orchestrale ricca e versatile, che lo ha visto collaborare con importanti orchestre venete — anche come prima tromba — e calcare i palcoscenici di festival di rilievo in Italia e all'estero, esibendosi al fianco di celebri direttori e artisti della musica pop e d'autore. Abilitato all'insegnamento nei licei musicali e con una solida esperienza alle spalle come docente di tromba, unisce la sua grande competenza tecnica a una forte passione didattica. All'Istituto Malipiero mette la sua esperienza professionale a disposizione degli allievi, accompagnandoli nello studio dello strumento con un percorso completo e stimolante.",
+  },
+  {
+    name: "Enrico Mastromatteo",
+    gender: "m",
+    role: "Percussioni",
+    corso: "Percussioni",
+    photo: enricoMastromatteo,
+    alt: "Il Maestro Enrico Mastromatteo mentre suona la batteria",
+    position: "center 35%",
+    bio: "Enrico Mastromatteo si approccia allo strumento della batteria sin dalla tenera età formandosi in varie scuole di musica nel Padovano. È segnato dalle influenze del folclore latino-americano e del batterismo pop-rock apprese dal batterista e percussionista Ivan Trevisan. Per una costante voglia di ricerca personale è entrato al conservatorio dove studia tuttora con il Maestro Massimo Pastore. Inoltre ha anche intrapreso il percorso espressivo del jazz con il Maestro Ermanno Maria Signorelli. Queste esperienze gli hanno permesso di avviare una fiorente carriera concertistica che l'ha visto collaborare con molti gruppi come l'Art Percussion Ensemble, l'Orchestra del Conservatorio Pollini di Padova, la Filarmonica di Belluno e suonare in palchi importanti come l'Arena di Verona, il San Basilio Music Fest per l'Università Ca' Foscari di Venezia, il circolo Nadir. La sua carriera artistica è in continua evoluzione, come dimostra il suo ultimo progetto in collaborazione con il gruppo Path to Springs: Hell All After, un album di 10 inediti che traccia una curva descrittiva dell'eterno contrasto tra ciò che appartiene all'interiorità più profonda e la necessità fisiologica di liberarlo dalle sue catene.",
+  },
+  {
+    name: "Chiara Fanzago",
+    gender: "f",
+    role: "Chitarra",
+    corso: "Chitarra",
+    photo: chiaraFanzago,
+    alt: "La Maestra Chiara Fanzago con la chitarra",
+    position: "center 20%",
+    bio: "Chiara Fanzago è una musicista polistrumentista e insegnante di musica, diplomata in Chitarra Jazz presso il Conservatorio “F. Venezze” di Rovigo. Dopo il percorso al Liceo Musicale “Concetto Marchesi” di Padova, ha approfondito la propria formazione attraverso masterclass con musicisti di rilievo nazionale e internazionale, affiancando agli studi della chitarra quelli di altri strumenti e delle tecnologie musicali. Dal 2021 insegna chitarra e musica d'insieme presso l'Istituto Malipiero, affiancando all'attività didattica un'intensa carriera concertistica. Dal 2019 si esibisce come chitarrista, cantante e bassista in numerosi progetti musicali, partecipando a festival, rassegne ed eventi culturali in tutta Italia. Attualmente è chitarrista e cantante del progetto pop-soul AK Duo, con il quale propone un repertorio che spazia tra soul, pop, R&B e jazz.",
   },
 ];
 
@@ -151,11 +180,7 @@ export default function About() {
                 </div>
                 <div className="px-6 pt-6">
                   <h3 className="text-[1.12rem] font-semibold">
-                    Maestr{t.name === "Marina Bartoli" ||
-                    t.name === "Antonella Nicolini"
-                      ? "a"
-                      : "o"}{" "}
-                    {t.name}
+                    Maestr{t.gender === "f" ? "a" : "o"} {t.name}
                   </h3>
                   <div className="mt-1.5 mb-2.5 text-[0.72rem] font-bold tracking-[0.14em] text-ottone uppercase">
                     {t.role}
