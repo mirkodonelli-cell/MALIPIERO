@@ -2,13 +2,52 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
-import { CORSI } from "@/context/BookingContext";
+import { CORSI } from "@/data/corsi";
 
 export default function Contact() {
+  const [nome, setNome] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [email, setEmail] = useState("");
+  const [etaAllievo, setEtaAllievo] = useState("");
+  const [corsoInteresse, setCorsoInteresse] = useState("");
   const [msg, setMsg] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
+  const [errorMsg, setErrorMsg] = useState("");
 
-  function send() {
-    alert("Anteprima: qui il messaggio arriva alla segreteria.");
+  async function send() {
+    if (!nome || !email || !msg) {
+      alert("Compilate almeno nome, email e messaggio.");
+      return;
+    }
+
+    setStatus("sending");
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/contatti", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome,
+          telefono,
+          email,
+          etaAllievo,
+          corsoInteresse,
+          messaggio: msg,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || "Errore durante l'invio.");
+      }
+      setStatus("sent");
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(
+        err instanceof Error ? err.message : "Errore durante l'invio.",
+      );
+    }
   }
 
   return (
@@ -37,6 +76,8 @@ export default function Contact() {
                 id="c-nome"
                 type="text"
                 placeholder="Nome e cognome"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
                 className="w-full rounded border border-linea bg-white px-4 py-3.5 text-[0.98rem] text-notte focus:outline-2 focus:outline-offset-1 focus:outline-carta-scura"
               />
             </div>
@@ -51,6 +92,8 @@ export default function Contact() {
                 id="c-tel"
                 type="tel"
                 placeholder="333 000 0000"
+                value={telefono}
+                onChange={(e) => setTelefono(e.target.value)}
                 className="w-full rounded border border-linea bg-white px-4 py-3.5 text-[0.98rem] text-notte focus:outline-2 focus:outline-offset-1 focus:outline-carta-scura"
               />
             </div>
@@ -67,6 +110,8 @@ export default function Contact() {
               id="c-mail"
               type="email"
               placeholder="nome@email.it"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full rounded border border-linea bg-white px-4 py-3.5 text-[0.98rem] text-notte focus:outline-2 focus:outline-offset-1 focus:outline-carta-scura"
             />
           </div>
@@ -83,6 +128,8 @@ export default function Contact() {
                 id="c-eta"
                 type="text"
                 placeholder="Es. 6 anni"
+                value={etaAllievo}
+                onChange={(e) => setEtaAllievo(e.target.value)}
                 className="w-full rounded border border-linea bg-white px-4 py-3.5 text-[0.98rem] text-notte focus:outline-2 focus:outline-offset-1 focus:outline-carta-scura"
               />
             </div>
@@ -95,7 +142,8 @@ export default function Contact() {
               </label>
               <select
                 id="c-int"
-                defaultValue=""
+                value={corsoInteresse}
+                onChange={(e) => setCorsoInteresse(e.target.value)}
                 className="w-full appearance-none rounded border border-linea bg-white px-4 py-3.5 text-[0.98rem] text-notte focus:outline-2 focus:outline-offset-1 focus:outline-carta-scura"
               >
                 <option value="">Non lo so ancora, consigliatemi</option>
@@ -128,10 +176,24 @@ export default function Contact() {
           <button
             type="button"
             onClick={send}
-            className="w-full rounded border border-notte bg-notte px-6 py-3.5 font-sans text-[0.88rem] font-bold tracking-[0.06em] text-panna uppercase transition-colors hover:border-carta-scura hover:bg-carta-scura"
+            disabled={status === "sending" || status === "sent"}
+            className="w-full rounded border border-notte bg-notte px-6 py-3.5 font-sans text-[0.88rem] font-bold tracking-[0.06em] text-panna uppercase transition-colors hover:border-carta-scura hover:bg-carta-scura disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Invia il messaggio
+            {status === "sending"
+              ? "Invio in corso…"
+              : status === "sent"
+                ? "Messaggio inviato ✓"
+                : "Invia il messaggio"}
           </button>
+          {status === "sent" ? (
+            <p className="mt-3 text-[0.85rem] font-medium text-carta-scura">
+              Messaggio ricevuto, vi risponderemo entro un giorno.
+            </p>
+          ) : status === "error" ? (
+            <p className="mt-3 text-[0.85rem] font-medium text-ottone">
+              {errorMsg || "Qualcosa è andato storto. Riprovate tra poco."}
+            </p>
+          ) : null}
         </Reveal>
 
         <Reveal as="div">

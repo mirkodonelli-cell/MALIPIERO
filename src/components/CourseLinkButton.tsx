@@ -1,6 +1,4 @@
-"use client";
-
-import { useBooking, CORSI, type Corso } from "@/context/BookingContext";
+const WHATSAPP_NUMBER = "393342997656";
 
 export default function CourseLinkButton({
   corso,
@@ -9,20 +7,17 @@ export default function CourseLinkButton({
   corso: string;
   label: string;
 }) {
-  const { setCorso } = useBooking();
+  const message = `Ciao! Vorrei prenotare una lezione di prova di ${corso}.`;
+  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
   return (
-    <button
-      type="button"
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="mt-auto px-6 pt-5 text-left font-sans text-[0.8rem] font-bold tracking-[0.12em] text-carta-scura uppercase hover:text-ottone"
-      onClick={() => {
-        if ((CORSI as readonly string[]).includes(corso)) {
-          setCorso(corso as Corso);
-        }
-        document.getElementById("prenota")?.scrollIntoView({ behavior: "smooth" });
-      }}
     >
       {label}
-    </button>
+    </a>
   );
 }

@@ -10,7 +10,6 @@
   --color-ottone: #c08a3e;
   --color-panna: #faf8f3;
   --color-linea: rgba(18, 48, 61, 0.14);
-  --color-pannello: #16394a;
 
   --font-serif: var(--font-literata), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-karla), "Helvetica Neue", Arial, sans-serif;
@@ -65,38 +64,6 @@ body {
    <select> nel popup nativo del browser, va forzato esplicitamente --- */
 select option {
   color: var(--color-notte);
-}
-
-/* --- select con freccia custom sul pannello scuro --- */
-select.select-dark {
-  background-image:
-    linear-gradient(45deg, transparent 50%, var(--color-carta) 50%),
-    linear-gradient(135deg, var(--color-carta) 50%, transparent 50%);
-  background-position:
-    calc(100% - 20px) 50%,
-    calc(100% - 14px) 50%;
-  background-size: 6px 6px, 6px 6px;
-  background-repeat: no-repeat;
-  padding-right: 2.6rem;
-}
-select.select-dark option {
-  background: var(--color-pannello);
-  color: var(--color-panna);
-}
-
-/* --- fila di giorni con scroll orizzontale mascherato --- */
-.days {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(251, 250, 248, 0.35) transparent;
-  -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
-  mask-image: linear-gradient(90deg, #000 88%, transparent);
-}
-.days::-webkit-scrollbar {
-  height: 5px;
-}
-.days::-webkit-scrollbar-thumb {
-  background: rgba(251, 250, 248, 0.35);
-  border-radius: 3px;
 }
 
 /* --- reveal all'ingresso in viewport --- */
