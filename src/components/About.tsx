@@ -11,6 +11,8 @@ import riccardoLucadello from "../../public/images/teachers/riccardo-lucadello.j
 import enricoMattea from "../../public/images/teachers/enrico-mattea.jpg";
 import enricoMastromatteo from "../../public/images/teachers/enrico-mastromatteo.jpg";
 import chiaraFanzago from "../../public/images/teachers/chiara-fanzago.jpg";
+import gianLucaZoccatelli from "../../public/images/teachers/gian-luca-zoccatelli.jpg";
+import vanniVespani from "../../public/images/teachers/vanni-vespani.jpg";
 
 const TEACHERS = [
   {
@@ -102,6 +104,26 @@ const TEACHERS = [
     alt: "La Maestra Chiara Fanzago con la chitarra",
     position: "center 20%",
     bio: "Chiara Fanzago è una musicista polistrumentista e insegnante di musica, diplomata in Chitarra Jazz presso il Conservatorio “F. Venezze” di Rovigo. Dopo il percorso al Liceo Musicale “Concetto Marchesi” di Padova, ha approfondito la propria formazione attraverso masterclass con musicisti di rilievo nazionale e internazionale, affiancando agli studi della chitarra quelli di altri strumenti e delle tecnologie musicali. Dal 2021 insegna chitarra e musica d'insieme presso l'Istituto Malipiero, affiancando all'attività didattica un'intensa carriera concertistica. Dal 2019 si esibisce come chitarrista, cantante e bassista in numerosi progetti musicali, partecipando a festival, rassegne ed eventi culturali in tutta Italia. Attualmente è chitarrista e cantante del progetto pop-soul AK Duo, con il quale propone un repertorio che spazia tra soul, pop, R&B e jazz.",
+  },
+  {
+    name: "Gian-Luca Zoccatelli",
+    gender: "m",
+    role: "Flauto traverso e Canto",
+    corso: "Flauto traverso",
+    photo: gianLucaZoccatelli,
+    alt: "Il Maestro Gian-Luca Zoccatelli",
+    position: "center 15%",
+    bio: "Nato a Verona, il Maestro Gian-Luca Zoccatelli è docente di flauto traverso e Canto presso l'Istituto Musicale “G.F. Malipiero”, dove mette a disposizione degli studenti un solido bagaglio artistico e metodologico. Nel corso della sua carriera ha consolidato una profonda competenza sia in ambito esecutivo che nell'insegnamento, sviluppando un approccio didattico che mette al centro la crescita individuale di ogni allievo. La sua attività si distingue per il rigore, la sensibilità e la capacità di stimolare costantemente la motivazione, guidando gli studenti nell'acquisizione delle abilità tecniche e interpretative. Attento a trasmettere l'amore per la musica e a valorizzare il talento espresso dai ragazzi, rappresenta una guida autorevole e appassionata nel panorama formativo dell'Istituto.",
+  },
+  {
+    name: "Vanni Vespani",
+    gender: "m",
+    role: "Percussioni",
+    corso: "Percussioni",
+    photo: vanniVespani,
+    alt: "Il Maestro Vanni Vespani alle percussioni",
+    position: "center 55%",
+    bio: "Vanni Vespani è docente di strumenti a percussione presso il Liceo Musicale “Marco Polo” di Venezia e il Conservatorio “Cesare Pollini” di Padova. Con passione, esperienza e attenzione alle esigenze di ogni allievo, accompagna bambini, ragazzi e adulti alla scoperta del mondo delle percussioni. Le sue lezioni uniscono tecnica, creatività e divertimento, con l'obiettivo di far crescere ogni studente non solo come musicista, ma anche come persona, in un ambiente accogliente e motivante.",
   },
 ];
 

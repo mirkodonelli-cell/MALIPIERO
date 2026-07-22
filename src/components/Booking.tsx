@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "393342997656";
+const WHATSAPP_NUMBER = "393343887656";
 const MESSAGE = "Ciao! Vorrei prenotare una lezione di prova.";
 
 export default function Booking() {

@@ -20,10 +20,10 @@ export default function Footer() {
             <div>
               Via San Tomaso 3, 35141 Padova ·{" "}
               <a
-                href="tel:+393342997656"
+                href="tel:+393343887656"
                 className="border-b border-transparent text-panna no-underline hover:border-ottone"
               >
-                334 299 7656
+                334 388 7656
               </a>
             </div>
           </div>

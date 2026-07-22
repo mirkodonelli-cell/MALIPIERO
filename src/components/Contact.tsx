@@ -194,10 +194,10 @@ export default function Contact() {
               </dt>
               <dd className="font-serif text-[1.25rem] leading-[1.45] font-medium">
                 <a
-                  href="tel:+393342997656"
+                  href="tel:+393343887656"
                   className="border-b border-ottone no-underline"
                 >
-                  334 299 7656
+                  334 388 7656
                 </a>
               </dd>
             </div>
@@ -207,10 +207,10 @@ export default function Contact() {
               </dt>
               <dd className="font-serif text-[1.25rem] leading-[1.45] font-medium">
                 <a
-                  href="https://wa.me/393342997656"
+                  href="https://wa.me/393343887656"
                   className="border-b border-ottone no-underline"
                 >
-                  334 299 7656
+                  334 388 7656
                 </a>
               </dd>
             </div>

@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Courses from "@/components/Courses";
 import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
+import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -18,6 +19,7 @@ export default function Home() {
         <Booking />
         <Contact />
       </main>
+      <Partners />
       <Footer />
       <WhatsAppButton />
     </>

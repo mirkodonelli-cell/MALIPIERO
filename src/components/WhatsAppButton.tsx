@@ -2,7 +2,7 @@ export default function WhatsAppButton() {
   return (
     <a
       className="fixed right-5 bottom-5 z-[60] grid h-14 w-14 place-items-center rounded-full bg-ottone text-white no-underline shadow-[0_10px_26px_-8px_rgba(18,48,61,0.6)] transition-colors hover:bg-[#a9762f]"
-      href="https://wa.me/393342997656"
+      href="https://wa.me/393343887656"
       aria-label="Scrivici su WhatsApp"
     >
       <svg

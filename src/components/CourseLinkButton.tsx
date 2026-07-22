@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "393342997656";
+const WHATSAPP_NUMBER = "393343887656";
 
 export default function CourseLinkButton({
   corso,
