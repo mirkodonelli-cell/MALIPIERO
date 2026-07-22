@@ -13,6 +13,8 @@ import enricoMastromatteo from "../../public/images/teachers/enrico-mastromatteo
 import chiaraFanzago from "../../public/images/teachers/chiara-fanzago.jpg";
 import gianLucaZoccatelli from "../../public/images/teachers/gian-luca-zoccatelli.jpg";
 import vanniVespani from "../../public/images/teachers/vanni-vespani.jpg";
+import marcoPerin from "../../public/images/teachers/marco-perin.jpg";
+import elisabettaCesarotto from "../../public/images/teachers/elisabetta-cesarotto.jpg";
 
 const TEACHERS = [
   {
@@ -108,12 +110,12 @@ const TEACHERS = [
   {
     name: "Gian-Luca Zoccatelli",
     gender: "m",
-    role: "Flauto traverso e Canto",
+    role: "Flauto traverso e Canto corale",
     corso: "Flauto traverso",
     photo: gianLucaZoccatelli,
     alt: "Il Maestro Gian-Luca Zoccatelli",
     position: "center 15%",
-    bio: "Nato a Verona, il Maestro Gian-Luca Zoccatelli è docente di flauto traverso e Canto presso l'Istituto Musicale “G.F. Malipiero”, dove mette a disposizione degli studenti un solido bagaglio artistico e metodologico. Nel corso della sua carriera ha consolidato una profonda competenza sia in ambito esecutivo che nell'insegnamento, sviluppando un approccio didattico che mette al centro la crescita individuale di ogni allievo. La sua attività si distingue per il rigore, la sensibilità e la capacità di stimolare costantemente la motivazione, guidando gli studenti nell'acquisizione delle abilità tecniche e interpretative. Attento a trasmettere l'amore per la musica e a valorizzare il talento espresso dai ragazzi, rappresenta una guida autorevole e appassionata nel panorama formativo dell'Istituto.",
+    bio: "Nato a Verona, il Maestro Gian-Luca Zoccatelli è docente di Flauto Traverso e Canto corale presso l'Istituto Musicale “G.F. Malipiero”, dove mette a disposizione degli studenti un solido bagaglio artistico e metodologico. Nel corso della sua carriera ha consolidato una profonda competenza sia in ambito esecutivo che nell'insegnamento, sviluppando un approccio didattico che mette al centro la crescita individuale di ogni allievo. La sua attività si distingue per il rigore, la sensibilità e la capacità di stimolare costantemente la motivazione, guidando gli studenti nell'acquisizione delle abilità tecniche e interpretative sia vocali che strumentali. Attento a trasmettere l'amore per la musica e a valorizzare il talento espresso dai ragazzi, rappresenta una guida autorevole e appassionata nel panorama formativo dell'Istituto. Presso la nostra scuola segue con dedizione corsi di ogni livello, accompagnando le nuove generazioni in un percorso di studio stimolante, completo e altamente qualificato.",
   },
   {
     name: "Vanni Vespani",
@@ -124,6 +126,26 @@ const TEACHERS = [
     alt: "Il Maestro Vanni Vespani alle percussioni",
     position: "center 55%",
     bio: "Vanni Vespani è docente di strumenti a percussione presso il Liceo Musicale “Marco Polo” di Venezia e il Conservatorio “Cesare Pollini” di Padova. Con passione, esperienza e attenzione alle esigenze di ogni allievo, accompagna bambini, ragazzi e adulti alla scoperta del mondo delle percussioni. Le sue lezioni uniscono tecnica, creatività e divertimento, con l'obiettivo di far crescere ogni studente non solo come musicista, ma anche come persona, in un ambiente accogliente e motivante.",
+  },
+  {
+    name: "Marco Perin",
+    gender: "m",
+    role: "Violino",
+    corso: "Violino",
+    photo: marcoPerin,
+    alt: "Il Maestro Marco Perin mentre suona il violino",
+    position: "center 20%",
+    bio: "Diplomatosi al Conservatorio “C. Pollini” di Padova, ha perfezionato la sua formazione violistica e cameristica sotto la guida di maestri di fama internazionale quali Y. Bashmet, M. Kugel e W. Christ. Premiato in concorsi nazionali ed internazionali (tra cui il Concorso di Ravenna e il TIM di Milano), ha suonato con le orchestre dei più prestigiosi teatri italiani, come La Fenice di Venezia, il Maggio Musicale Fiorentino e il Comunale di Bologna. La sua versatilità eclettica lo ha portato a collaborare con artisti di rilievo come Mario Brunello, Vinicio Capossela, Marco Paolini, Franco Cerri ed esponenti del Buena Vista Social Club. Docente di violino all'Istituto Malipiero dal 2005, affianca all'attività concertistica una profonda passione per la didattica dell'infanzia, essendosi specializzato con il diploma nel metodo “Kató Havas” e l'abilitazione all'insegnamento del Metodo Suzuki.",
+  },
+  {
+    name: "Elisabetta Cesarotto",
+    gender: "f",
+    role: "Canto e Propedeutica musicale",
+    corso: "Canto",
+    photo: elisabettaCesarotto,
+    alt: "La Maestra Elisabetta Cesarotto",
+    position: "center 20%",
+    bio: "Soprano e docente, ha conseguito il Diploma Accademico in Canto Lirico presso il Conservatorio “C. Pollini” di Padova e prosegue il suo perfezionamento magistrale al Conservatorio di Rovigo. Presso l'Istituto “G.F. Malipiero” cura con passione le classi di Canto e di Propedeutica Musicale, ambito in cui si è fortemente specializzata frequentando corsi di didattica per le disabilità, seminari di fisiopatologia vocale e percorsi metodologici alla SIEM, con focus sul Metodo Kodály. Il suo profilo unisce una solida attività didattica nella prima infanzia a una ricca esperienza coristica e vocale. Nel corso della sua carriera ha infatti collaborato e continua a collaborare come corista e solista con diverse e prestigiose realtà musicali del territorio per progetti e concerti su chiamata.",
   },
 ];
 

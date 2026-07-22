@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Courses from "@/components/Courses";
+import CoroAnnuncio from "@/components/CoroAnnuncio";
 import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
 import Partners from "@/components/Partners";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <About />
         <Courses />
+        <CoroAnnuncio />
         <Booking />
         <Contact />
       </main>
