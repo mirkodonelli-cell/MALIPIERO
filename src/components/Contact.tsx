@@ -4,6 +4,8 @@ import { useState } from "react";
 import Reveal from "./Reveal";
 import { CORSI } from "@/data/corsi";
 
+const DEST_EMAIL = "associazionemusicalemalipiero@gmail.com";
+
 export default function Contact() {
   const [nome, setNome] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -11,43 +13,26 @@ export default function Contact() {
   const [etaAllievo, setEtaAllievo] = useState("");
   const [corsoInteresse, setCorsoInteresse] = useState("");
   const [msg, setMsg] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle",
-  );
-  const [errorMsg, setErrorMsg] = useState("");
 
-  async function send() {
+  function send() {
     if (!nome || !email || !msg) {
       alert("Compilate almeno nome, email e messaggio.");
       return;
     }
 
-    setStatus("sending");
-    setErrorMsg("");
-    try {
-      const res = await fetch("/api/contatti", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nome,
-          telefono,
-          email,
-          etaAllievo,
-          corsoInteresse,
-          messaggio: msg,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Errore durante l'invio.");
-      }
-      setStatus("sent");
-    } catch (err) {
-      setStatus("error");
-      setErrorMsg(
-        err instanceof Error ? err.message : "Errore durante l'invio.",
-      );
-    }
+    const subject = `Richiesta info dal sito — ${nome}`;
+    const body = [
+      `Nome: ${nome}`,
+      `Telefono: ${telefono || "—"}`,
+      `Email: ${email}`,
+      `Età allievo: ${etaAllievo || "—"}`,
+      `Corso di interesse: ${corsoInteresse || "—"}`,
+      "",
+      "Messaggio:",
+      msg,
+    ].join("\n");
+
+    window.location.href = `mailto:${DEST_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   return (
@@ -176,24 +161,13 @@ export default function Contact() {
           <button
             type="button"
             onClick={send}
-            disabled={status === "sending" || status === "sent"}
-            className="w-full rounded border border-notte bg-notte px-6 py-3.5 font-sans text-[0.88rem] font-bold tracking-[0.06em] text-panna uppercase transition-colors hover:border-carta-scura hover:bg-carta-scura disabled:cursor-not-allowed disabled:opacity-60"
+            className="w-full rounded border border-notte bg-notte px-6 py-3.5 font-sans text-[0.88rem] font-bold tracking-[0.06em] text-panna uppercase transition-colors hover:border-carta-scura hover:bg-carta-scura"
           >
-            {status === "sending"
-              ? "Invio in corso…"
-              : status === "sent"
-                ? "Messaggio inviato ✓"
-                : "Invia il messaggio"}
+            Invia il messaggio
           </button>
-          {status === "sent" ? (
-            <p className="mt-3 text-[0.85rem] font-medium text-carta-scura">
-              Messaggio ricevuto, vi risponderemo entro un giorno.
-            </p>
-          ) : status === "error" ? (
-            <p className="mt-3 text-[0.85rem] font-medium text-ottone">
-              {errorMsg || "Qualcosa è andato storto. Riprovate tra poco."}
-            </p>
-          ) : null}
+          <p className="mt-3 text-[0.78rem] text-notte-soft">
+            Si apre il vostro programma di posta, già pronto per l&apos;invio.
+          </p>
         </Reveal>
 
         <Reveal as="div">
