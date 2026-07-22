@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Literata, Karla, Courier_Prime } from "next/font/google";
+import CookieNotice from "@/components/CookieNotice";
 import "./globals.css";
 
 const literata = Literata({
@@ -44,6 +45,7 @@ export default function RootLayout({
     >
       <body className="overflow-x-hidden bg-velo font-sans text-[17px] leading-[1.65] text-notte antialiased">
         {children}
+        <CookieNotice />
       </body>
     </html>
   );

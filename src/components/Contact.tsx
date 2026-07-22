@@ -13,10 +13,15 @@ export default function Contact() {
   const [etaAllievo, setEtaAllievo] = useState("");
   const [corsoInteresse, setCorsoInteresse] = useState("");
   const [msg, setMsg] = useState("");
+  const [privacyOk, setPrivacyOk] = useState(false);
 
   function send() {
     if (!nome || !email || !msg) {
       alert("Compilate almeno nome, email e messaggio.");
+      return;
+    }
+    if (!privacyOk) {
+      alert("Dovete accettare l'informativa sulla privacy per continuare.");
       return;
     }
 
@@ -157,6 +162,27 @@ export default function Contact() {
               className="w-full rounded border border-linea bg-white px-4 py-3.5 text-[0.98rem] text-notte focus:outline-2 focus:outline-offset-1 focus:outline-carta-scura"
             />
           </div>
+
+          <label className="mb-5 flex cursor-pointer items-start gap-2.5 text-[0.82rem] text-notte-soft">
+            <input
+              type="checkbox"
+              checked={privacyOk}
+              onChange={(e) => setPrivacyOk(e.target.checked)}
+              className="mt-0.5 w-auto flex-none accent-notte"
+            />
+            <span>
+              Ho letto e accetto l&apos;
+              <a
+                href="/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-ottone text-notte no-underline"
+              >
+                informativa sulla privacy
+              </a>
+              .
+            </span>
+          </label>
 
           <button
             type="button"

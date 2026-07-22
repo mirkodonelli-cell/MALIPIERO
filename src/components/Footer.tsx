@@ -36,7 +36,22 @@ export default function Footer() {
             associazionemusicalemalipiero@gmail.com
           </a>
           <br />
-          <span className="opacity-60">P.IVA 05741080286 — Privacy — Cookie</span>
+          <span className="opacity-60">
+            P.IVA 05741080286 —{" "}
+            <a
+              href="/privacy"
+              className="border-b border-transparent text-panna no-underline opacity-100 hover:border-ottone"
+            >
+              Privacy
+            </a>{" "}
+            —{" "}
+            <a
+              href="/cookie-policy"
+              className="border-b border-transparent text-panna no-underline opacity-100 hover:border-ottone"
+            >
+              Cookie
+            </a>
+          </span>
         </div>
       </div>
     </footer>
